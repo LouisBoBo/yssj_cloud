@@ -97,10 +97,6 @@ public class MineFragment extends Fragment implements View.OnClickListener{
                 .into(head_img);
 
 
-
-//        Glide.with(getActivity()).load("https://img0.baidu.com/it/u=202312204,2771333250&fm=253&fmt=auto&app=138&f=JPEG?w=658&h=439").into(head_img);
-
-
         ImageView yue_img =  view_yue.findViewById(R.id.image_title);
         yue_img.setImageResource(R.mipmap.wallet_icon);
         TextView yue_title = view_yue.findViewById(R.id.content_text);
