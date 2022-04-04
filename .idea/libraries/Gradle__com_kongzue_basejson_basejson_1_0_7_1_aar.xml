@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Gradle: com.kongzue.basejson:basejson:1.0.7.1@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a8310d727389d272dcb6e0b0389ee6b5/jetified-basejson-1.0.7.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a8310d727389d272dcb6e0b0389ee6b5/jetified-basejson-1.0.7.1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/a8310d727389d272dcb6e0b0389ee6b5/jetified-basejson-1.0.7.1/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.kongzue.basejson/basejson/1.0.7.1/f4f17ff926fc490f4b1d32b3a9c3aaf2ce966c60/basejson-1.0.7.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
