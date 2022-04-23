@@ -45,7 +45,6 @@ public class BindingPhoneActivity extends BaseActivity implements View.OnClickLi
     public void feedbackHttp(){
         mMessageLoader.show();
         Parameter parameter = new Parameter();
-        parameter.put("version","V1.32");
 
         HttpRequest.POST(getActivity(), HttpApi.USER_QUERYPHONE, parameter, new BeanResponseListener<PhoneBean>() {
 

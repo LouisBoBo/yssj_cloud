@@ -15,6 +15,9 @@ public class HttpApi {
 
     public static String YSS_URL_ANDROID = "http://123.58.33.33/cloud-api/";
     public static String YSS_IMGURL = "http://img.yiline.com/";
+    public static String APP_ID = "wx8c5fe3e40669c535";
+    public static String APP_VERSION = "V3.8.6";
+    public static String VERSION_CODE = "V1.32";
 
     //测试环境 15988888888 Exc741852963
 //    public static String SERVICES_ADDRESS = "http://192.168.18.202";

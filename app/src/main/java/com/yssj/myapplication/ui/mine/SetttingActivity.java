@@ -80,9 +80,6 @@ public class SetttingActivity extends BaseActivity implements View.OnClickListen
         mMessageLoader.show();
         Parameter parameter = new Parameter();
 
-        parameter.put("version","V1.32");
-
-
         HttpRequest.POST(getActivity(), HttpApi.ACCOUNT_LOGINOUT, parameter, new BeanResponseListener<LoginInfoBean>() {
 
             @Override

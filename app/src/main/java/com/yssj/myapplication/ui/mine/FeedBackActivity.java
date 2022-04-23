@@ -61,7 +61,6 @@ public class FeedBackActivity extends BaseActivity implements View.OnClickListen
         SharedPreferences sp = getActivity().getSharedPreferences("logindata", MODE_PRIVATE);
         int userid = sp.getInt(Constant.USER_ID,0);
 
-        parameter.put("version","V1.32");
         parameter.put("version_no","3.8.5");
         parameter.put("userid",userid);
         parameter.put("content",binding.commentEdit.getText());

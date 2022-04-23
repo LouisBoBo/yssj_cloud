@@ -130,8 +130,9 @@ public class HttpRequest extends BaseOkHttp {
             parameter.put("authKey",authKey);
             parameter.put("I10o",I10o);
             parameter.put("channel","18");
-            parameter.put("app_id","wx8c5fe3e40669c535");
-            parameter.put("appVersion","V3.8.5");
+            parameter.put("app_id",HttpApi.APP_ID);
+            parameter.put("appVersion",HttpApi.APP_VERSION);
+            parameter.put("version",HttpApi.VERSION_CODE);
 
 
             HttpRequest httpRequest = new HttpRequest();
@@ -260,8 +261,8 @@ public class HttpRequest extends BaseOkHttp {
             parameter.put("authKey",authKey);
             parameter.put("I10o",I10o);
             parameter.put("channel","18");
-            parameter.put("app_id","wx8c5fe3e40669c535");
-            parameter.put("appVersion","V3.8.5");
+            parameter.put("app_id",HttpApi.APP_ID);
+            parameter.put("appVersion",HttpApi.APP_VERSION);
 
             HttpRequest httpRequest = new HttpRequest();
             httpRequest.context = new WeakReference<Context>(context);

@@ -70,7 +70,6 @@ public class ChangePasswordActivity extends BaseActivity implements View.OnClick
         mMessageLoader.show();
         Parameter parameter = new Parameter();
 
-        parameter.put("version","V1.32");
         parameter.put("newPwd", MD5Tools.MD5(binding.etNewPass.getText().toString()));
         parameter.put("pwd",MD5Tools.MD5(binding.etOldPass.getText().toString()));
 

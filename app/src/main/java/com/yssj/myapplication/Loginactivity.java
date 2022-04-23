@@ -57,7 +57,7 @@ public class Loginactivity extends BaseActivity {
                 mMessageLoader.show();
                 Parameter parameter = new Parameter();
 
-                parameter.put("version","V1.32");
+                parameter.put("version",HttpApi.VERSION_CODE);
                 parameter.put("account","13456789369");
                 parameter.put("pwd", MD5Tools.MD5("123456"));
                 parameter.put("device",1);
