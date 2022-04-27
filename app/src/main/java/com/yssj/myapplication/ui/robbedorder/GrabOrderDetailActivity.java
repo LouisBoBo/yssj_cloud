@@ -44,8 +44,8 @@ public class GrabOrderDetailActivity extends BaseActivity implements View.OnClic
                     startActivity(intent);
                     return;
                 }else {
-                    CangraborderDialog dialog = new CangraborderDialog(getActivity());
-                    dialog.show();
+//                    CangraborderDialog dialog = new CangraborderDialog(getActivity());
+//                    dialog.show();
                 }
             }
         });

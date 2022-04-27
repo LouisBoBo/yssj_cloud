@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: cn.smssdk:ShortMessageSDKGUI:3.7.4@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5bdfbe9af7dfb0c653a1b9d97586b95e/jetified-ShortMessageSDKGUI-3.7.4/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5bdfbe9af7dfb0c653a1b9d97586b95e/jetified-ShortMessageSDKGUI-3.7.4/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/5bdfbe9af7dfb0c653a1b9d97586b95e/jetified-ShortMessageSDKGUI-3.7.4/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/38bb5457179aee67dcd5aacea455ce7e/jetified-ShortMessageSDKGUI-3.7.4/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/38bb5457179aee67dcd5aacea455ce7e/jetified-ShortMessageSDKGUI-3.7.4/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/38bb5457179aee67dcd5aacea455ce7e/jetified-ShortMessageSDKGUI-3.7.4/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

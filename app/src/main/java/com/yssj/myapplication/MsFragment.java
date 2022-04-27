@@ -1,6 +1,8 @@
 package com.yssj.myapplication;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,16 +12,32 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.kongzue.baseokhttp.util.Parameter;
+import com.yssj.myapplication.bean.Constant;
+import com.yssj.myapplication.bean.GrabOrderBean;
+import com.yssj.myapplication.bean.LoginInfoBean;
+import com.yssj.myapplication.bean.MD5Tools;
+import com.yssj.myapplication.http.BeanResponseListener;
+import com.yssj.myapplication.http.HttpApi;
+import com.yssj.myapplication.http.HttpRequest;
 import com.yssj.myapplication.ui.cangraborder.Adapter.CangraborderAdapter;
 import com.yssj.myapplication.ui.cangraborder.CangraborderDetaillActivity;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+import com.yssj.myapplication.utils.XToastUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MsFragment extends Fragment {
     private RecyclerView myrecyclerview;
     private CangraborderAdapter adapter;
     private String content;
     private View pubview;
+    private int curPage = 1;
+    private int pageSize = 30;
     private SmartRefreshLayout refreshLayout;
+
+    private List<GrabOrderBean.GrabOrderListDTO> grabOrderList = new ArrayList<>();
 
 
     public MsFragment(String content) {
@@ -33,6 +51,7 @@ public class MsFragment extends Fragment {
         refreshLayout = view.findViewById(R.id.refreshLayout);
 
         initView();
+        initData();
         pubview = view;
         return view;
     }
@@ -46,10 +65,13 @@ public class MsFragment extends Fragment {
         adapter.setOnItemClick(new CangraborderAdapter.OnItemClick() {
             @Override
             public void click(int index) {
-                Intent intent = new Intent(getActivity(), CangraborderDetaillActivity.class);
-                startActivity(intent);
+                GrabOrderBean.GrabOrderListDTO grabOrderListDTO = grabOrderList.get(index);
 
-//                startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(getActivity()).toBundle());
+                Intent intent = new Intent(getActivity(), CangraborderDetaillActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("id", String.valueOf(grabOrderListDTO.getId()));
+                intent.putExtras(bundle);
+                startActivity(intent);
                 getActivity().overridePendingTransition(R.anim.slide_left_in, R.anim.slide_left_out);
             }
         });
@@ -57,15 +79,42 @@ public class MsFragment extends Fragment {
 
         //下拉刷新
         refreshLayout.setOnRefreshListener(refreshLayout -> {
-            refreshLayout.finishRefresh();
-            refreshLayout.finishLoadMore();
+            curPage = 1;
+            initData();
         });
 
 
         //上拉加载
         refreshLayout.setOnLoadMoreListener(refreshLayout -> {
-            refreshLayout.finishRefresh();
-            refreshLayout.finishLoadMore();
+
+            curPage ++;
+            initData();
+
+        });
+    }
+
+    public void initData(){
+        Parameter parameter = new Parameter();
+
+        parameter.put("version", HttpApi.VERSION_CODE);
+        parameter.put("page",curPage);
+        parameter.put("rows",pageSize);
+
+        HttpRequest.POST(getActivity(), HttpApi.GRABORDERS_GRABORDERSLIST, parameter, new BeanResponseListener<GrabOrderBean>() {
+
+            @Override
+            public void onResponse(GrabOrderBean bean, Exception error) {
+                refreshLayout.finishRefresh();
+                refreshLayout.finishLoadMore();
+                if(error == null){
+//                    XToastUtils.toast("请求成功");
+                    if(curPage == 1){
+                        grabOrderList.clear();
+                    }
+                    grabOrderList.addAll(bean.getGrabOrderList());
+                    adapter.setmDatas(grabOrderList);
+                }
+            }
         });
     }
 }

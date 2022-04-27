@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
-        android:id="@+id/head_img"
+        android:id="@+id/img_order"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginLeft="15dp"
@@ -26,38 +26,83 @@
         android:gravity="left"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/head_img"
+        app:layout_constraintStart_toEndOf="@id/img_order"
         app:layout_constraintEnd_toEndOf="parent">
 
         <TextView
+            android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="12sp"
             android:textColor="@color/black"
+            android:textStyle="bold"
             android:layout_weight="1"
             android:text="梭织连衣裙" />
 
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#2b2b2b"
-            android:textSize="10sp"
             android:layout_weight="1"
-            android:text="质量要求" />
-        <TextView
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#2b2b2b"
+                android:textSize="10sp"
+                android:text="质量要求：" />
+
+            <TextView
+                android:id="@+id/tv_quality"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#A5A5A5"
+                android:textSize="10sp"
+                android:text="品牌" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#2b2b2b"
-            android:textSize="10sp"
             android:layout_weight="1"
-            android:text="交货时间" />
-        <TextView
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#2b2b2b"
+                android:textSize="10sp"
+                android:text="交货时间：" />
+
+            <TextView
+                android:id="@+id/tv_deliver"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#A5A5A5"
+                android:textSize="10sp"
+                android:text="48小时" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/pink_color"
-            android:textSize="10sp"
             android:layout_weight="1"
-            android:text="加工费" />
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/pink_color"
+                android:textSize="10sp"
+                android:text="加工费￥" />
+
+            <TextView
+                android:id="@+id/tv_process"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/pink_color"
+                android:textSize="10sp"
+                android:layout_weight="1"
+                android:text="" />
+        </LinearLayout>
+
 
     </LinearLayout>
 
@@ -72,33 +117,73 @@
         android:gravity="right"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@id/head_img"
+        app:layout_constraintStart_toEndOf="@id/img_order"
         app:layout_constraintEnd_toEndOf="parent">
 
         <TextView
+            android:id="@+id/tv_color"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#A5A5A5"
+            android:textStyle="bold"
             android:textSize="12sp"
             android:layout_weight="1"
             android:text="红色" />
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#2b2b2b"
+                android:textSize="10sp"
+                android:text="可抢件数：" />
+
+            <TextView
+                android:id="@+id/tv_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#A5A5A5"
+                android:textSize="10sp"
+                android:text="0件" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#2b2b2b"
+                android:textSize="10sp"
+                android:text="发单时间：" />
+
+            <TextView
+                android:id="@+id/tv_issue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#A5A5A5"
+                android:textSize="10sp"
+                android:text="" />
+
+        </LinearLayout>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:textSize="10sp"
-            android:layout_weight="1"
-            android:text="加工件数" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="10sp"
-            android:layout_weight="1"
-            android:text="剩余时间" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="" />
+            android:textColor="@color/white"
+            android:text="发掘发掘" />
 
     </LinearLayout>
 

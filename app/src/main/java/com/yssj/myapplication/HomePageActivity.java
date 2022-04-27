@@ -53,19 +53,19 @@ public class HomePageActivity extends BaseActivity {
                 Toast.makeText(getApplicationContext(), "近期即将上线，敬请期待",
                         Toast.LENGTH_SHORT).show();
 
-                mMessageLoader.show();
-                JsonMap map = new JsonMap();
-                Parameter parameter = new Parameter();
+//                mMessageLoader.show();
+//                JsonMap map = new JsonMap();
+//                Parameter parameter = new Parameter();
 
-                HttpRequest.JSONPOST(getActivity(), HttpApi.LOGIN_GET_PUBLIC_KEY, map, new BeanResponseListener<BaseBean>() {
-                    @Override
-                    public void onResponse(BaseBean lampDeviceListBean, Exception error) {
-                        mMessageLoader.dismiss();
-                        if(error == null){
-                            XToastUtils.toast("请求成功");
-                        }
-                    }
-                });
+//                HttpRequest.JSONPOST(getActivity(), HttpApi.LOGIN_GET_PUBLIC_KEY, map, new BeanResponseListener<BaseBean>() {
+//                    @Override
+//                    public void onResponse(BaseBean lampDeviceListBean, Exception error) {
+//                        mMessageLoader.dismiss();
+//                        if(error == null){
+//                            XToastUtils.toast("请求成功");
+//                        }
+//                    }
+//                });
             }
         });
 

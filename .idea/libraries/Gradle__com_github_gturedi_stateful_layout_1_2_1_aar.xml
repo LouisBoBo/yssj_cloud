@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.gturedi:stateful-layout:1.2.1@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/70c72e11e61518f64304143ea483e5c7/jetified-stateful-layout-1.2.1/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/70c72e11e61518f64304143ea483e5c7/jetified-stateful-layout-1.2.1/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/70c72e11e61518f64304143ea483e5c7/jetified-stateful-layout-1.2.1/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2ed1479ebb9225b5c973389ac0566c56/jetified-stateful-layout-1.2.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2ed1479ebb9225b5c973389ac0566c56/jetified-stateful-layout-1.2.1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2ed1479ebb9225b5c973389ac0566c56/jetified-stateful-layout-1.2.1/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.gturedi/stateful-layout/1.2.1/d56f735985fc2b8b66815530c2d5ad216d58894d/stateful-layout-1.2.1-javadoc.jar!/" />
