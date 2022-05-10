@@ -29,7 +29,7 @@ public class UserInfoActivity extends BaseActivity implements View.OnClickListen
     @Override
     public void onClick(View view) {
         if(view == binding.headviewBackImg){
-            finish();
+            onBackPressed();
         }else if(view == binding.relUserNickname){
             startActivity(ChangeNickNameActivity.class);
         }

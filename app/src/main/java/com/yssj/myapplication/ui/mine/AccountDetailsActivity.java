@@ -10,8 +10,13 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.kongzue.baseokhttp.util.Parameter;
 import com.yssj.myapplication.R;
 import com.yssj.myapplication.base.BaseActivity;
+import com.yssj.myapplication.bean.MywalletBean;
+import com.yssj.myapplication.http.BeanResponseListener;
+import com.yssj.myapplication.http.HttpApi;
+import com.yssj.myapplication.http.HttpRequest;
 import com.yssj.myapplication.ui.mine.adapter.AccountDetailsAdapter;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.xuexiang.xui.widget.picker.widget.OptionsPickerView;
@@ -44,6 +49,7 @@ public class AccountDetailsActivity extends BaseActivity implements View.OnClick
         mconstant = this;
 
         initView();
+        initData();
     }
 
     public void initView(){
@@ -83,10 +89,30 @@ public class AccountDetailsActivity extends BaseActivity implements View.OnClick
         });
     }
 
+    //获取数据
+    public void initData(){
+        Parameter parameter = new Parameter();
+        parameter.put("version", HttpApi.VERSION_CODE);
+        parameter.put("type",2);
+
+        mMessageLoader.show();
+        HttpRequest.POST(getActivity(), HttpApi.WALLET_FINDFUNDDETAIL, parameter, new BeanResponseListener<MywalletBean>() {
+
+            @Override
+            public void onResponse(MywalletBean bean, Exception error) {
+
+                mMessageLoader.dismiss();
+                if(error == null){
+
+                }
+            }
+        });
+    }
+
     @Override
     public void onClick(View view) {
         if(view.getId() == R.id.headview_back_img){
-            finish();
+            onBackPressed();
         }else if(view.getId() == R.id.time_select){
             timePicker();
         }else if(view.getId() == R.id.type_select){

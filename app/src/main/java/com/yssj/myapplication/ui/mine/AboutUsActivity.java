@@ -46,7 +46,7 @@ public class AboutUsActivity extends BaseActivity implements View.OnClickListene
         } else if (view == binding.viewFeedBack.getRoot()) {
             startActivity(FeedBackActivity.class);
         } else if (view == binding.headviewBackImg) {
-            finish();
+            onBackPressed();
         }
     }
 }

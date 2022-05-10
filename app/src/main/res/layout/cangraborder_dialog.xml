@@ -10,7 +10,10 @@
         app:layout_constraintTop_toTopOf="parent"
         android:gravity="center_horizontal"
         android:orientation="vertical"
-        android:padding="20dp"
+        android:paddingLeft="40dp"
+        android:paddingRight="40dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
         android:background="@drawable/bg_choice_btn_num"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">

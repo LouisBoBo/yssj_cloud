@@ -27,7 +27,7 @@ public class ChangeNickNameActivity extends BaseActivity implements View.OnClick
     @Override
     public void onClick(View view) {
         if(view == binding.headviewBackImg){
-            finish();
+            onBackPressed();
         }
     }
 }

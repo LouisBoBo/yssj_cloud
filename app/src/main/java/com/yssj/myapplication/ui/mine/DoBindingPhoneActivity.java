@@ -195,7 +195,7 @@ public class DoBindingPhoneActivity extends BaseActivity implements View.OnClick
     @Override
     public void onClick(View view) {
         if(view == binding.headviewBackImg){
-            finish();
+            onBackPressed();
         }else if(view == binding.ivGif){
             binding.ivGif.setImageBitmap(CodeUtils.getInstance().createBitmap(this));
         }else if(view == binding.btnNextStepNext){

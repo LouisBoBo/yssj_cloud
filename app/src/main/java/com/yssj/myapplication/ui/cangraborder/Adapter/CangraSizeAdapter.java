@@ -50,7 +50,7 @@ public class CangraSizeAdapter extends RecyclerView.Adapter<CangraSizeAdapter.VH
     @Override
     public void onBindViewHolder(@NonNull CangraSizeAdapter.VH holder, int position) {
         GrabOrderDetailBean.GrabOrdersDTO.StockTypesDTO stockTypesDTO = this.areaModelList.get(position);
-        holder.tv_title_size.setText(stockTypesDTO.getName());
+        holder.tv_title_size.setText(stockTypesDTO.getName()+"码：");
 
         holder.ed_input.addTextChangedListener(new TextWatcher() {
             @Override

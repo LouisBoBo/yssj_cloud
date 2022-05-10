@@ -29,6 +29,15 @@
         <item name="android:windowContentTransitions">true</item>
     </style>
 
+    <style name="SplashThemeOld" parent="android:Theme.NoTitleBar.Fullscreen">
+
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@drawable/config_bg_splash</item>
+
+    </style>
+
     <style name="AppTheme.Launch">
         <item name="xui_config_color_splash_bg">@color/xui_config_color_white</item>
         <item name="xui_config_app_logo_bottom">@dimen/xui_config_app_logo_bottom</item>

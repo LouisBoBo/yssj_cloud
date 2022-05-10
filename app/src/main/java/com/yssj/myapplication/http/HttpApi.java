@@ -56,7 +56,7 @@ public class HttpApi {
     public static String CHECKCODE = YSS_URL_ANDROID + "user/checkCode";
 
     /**
-     * 抢单接口
+     * 可抢订单接口
      */
     public static String GRABORDERS_GRABORDERSLIST = YSS_URL_ANDROID + "grabOrders/grabOrdersList";
 
@@ -64,4 +64,34 @@ public class HttpApi {
      * 抢单详情
      */
     public static String GRABORDERS_QUERYDETAIL = YSS_URL_ANDROID + "grabOrders/queryDetail";
+
+    /**
+     * 抢单
+     */
+    public static String USERGRABORDERS_ADDGRABORDERS = YSS_URL_ANDROID + "userGrabOrders/addUserGrabOrders";
+
+    /**
+     * 已抢订单接口
+     */
+    public static String USERGRABORDERS_GRABORDERSLIST = YSS_URL_ANDROID + "userGrabOrders/grabOrdersList";
+
+    /**
+     * 已抢订单详情
+     */
+    public static String USERGRABORDERS_QUERYDETAIL = YSS_URL_ANDROID + "/userGrabOrders/queryDetail";
+
+    /**
+     * 交回裁片
+     */
+    public static String USERGRABORDERS_UPDATEBYSELECTIVE = YSS_URL_ANDROID + "userGrabOrders/updateBySelective";
+
+    /**
+     * 账户余额
+     */
+    public static String WALLET_MYWALLET = YSS_URL_ANDROID + "wallet/myWallet";
+
+    /**
+     * 账户明细
+     */
+    public static String WALLET_FINDFUNDDETAIL = YSS_URL_ANDROID + "wallet/findFundDetail";
 }

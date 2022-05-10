@@ -49,6 +49,7 @@
         app:layout_constraintTop_toBottomOf="@id/headview">
 
         <ImageView
+            android:id="@+id/head_img1"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_columnWeight="1"
@@ -58,6 +59,7 @@
             android:src="@drawable/config_bg_splash"/>
 
         <ImageView
+            android:id="@+id/head_img2"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_columnWeight="1"
@@ -67,6 +69,7 @@
             android:src="@drawable/config_bg_splash"/>
 
         <ImageView
+            android:id="@+id/head_img3"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_columnWeight="1"
@@ -76,6 +79,7 @@
             android:src="@drawable/config_bg_splash"/>
 
         <ImageView
+            android:id="@+id/head_img4"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_columnWeight="1"
@@ -84,6 +88,7 @@
             android:adjustViewBounds="true"
             android:src="@drawable/config_bg_splash"/>
         <ImageView
+            android:id="@+id/head_img5"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_columnWeight="1"
@@ -92,6 +97,7 @@
             android:adjustViewBounds="true"
             android:src="@drawable/config_bg_splash"/>
         <ImageView
+            android:id="@+id/head_img6"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_columnWeight="1"

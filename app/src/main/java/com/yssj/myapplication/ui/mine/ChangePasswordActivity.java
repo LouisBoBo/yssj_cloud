@@ -45,7 +45,7 @@ public class ChangePasswordActivity extends BaseActivity implements View.OnClick
     @Override
     public void onClick(View view) {
         if(view == binding.headviewBackImg){
-            finish();
+            onBackPressed();
         }else if(view == binding.btnSubmit){
             if(binding.etOldPass.getText().length()==0){
                 XToastUtils.toast("请输入旧密码");

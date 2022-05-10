@@ -56,7 +56,7 @@ public class SetttingActivity extends BaseActivity implements View.OnClickListen
         binding.headviewBackImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                onBackPressed();
             }
         });
     }

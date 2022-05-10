@@ -8,7 +8,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.yssj.myapplication.base.BaseActivity;
@@ -24,9 +26,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     //UI Object
     private TextView ms_topbar_title;
-    private TextView ms_tab_home;
-    private TextView ms_tab_category;
-    private TextView ms_tab_discover;
+    private ImageView ms_tab_home;
+    private ImageView ms_tab_category;
+    private ImageView ms_tab_discover;
     private TextView ms_tab_cart;
     private FrameLayout ms_content;
 
@@ -51,7 +53,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         EventBus.getDefault().register(this);
 
+        //设置无标题
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+        //全屏
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         overridePendingTransition(R.anim.slide_left_in,R.anim.slide_right_out);
 
@@ -68,9 +73,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     //UI组件初始化与事件绑定
     private void bindViews() {
         ms_topbar_title = (TextView) findViewById(R.id.ms_topbar_title);
-        ms_tab_home = (TextView) findViewById(R.id.ms_tab_home);
-        ms_tab_category = (TextView) findViewById(R.id.ms_tab_category);
-        ms_tab_discover = (TextView) findViewById(R.id.ms_tab_discover);
+        ms_tab_home = findViewById(R.id.ms_tab_home);
+        ms_tab_category = findViewById(R.id.ms_tab_category);
+        ms_tab_discover = findViewById(R.id.ms_tab_discover);
         ms_content = (FrameLayout) findViewById(R.id.ms_content);
 
         ms_tab_home.setOnClickListener(this);

@@ -36,6 +36,9 @@ public class HomePageActivity extends BaseActivity {
 
         mcontext = this;
 
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags( WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -44,8 +47,6 @@ public class HomePageActivity extends BaseActivity {
 
         //回传用户隐私授权结果
         MobSDK.submitPolicyGrantResult(true, null);
-
-        getWindow().setFlags( WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         binding.myorder.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -38,7 +38,7 @@ public class BindingPhoneActivity extends BaseActivity implements View.OnClickLi
     @Override
     public void onClick(View view) {
         if(view == binding.headviewBackImg){
-            finish();
+            onBackPressed();
         }
     }
 

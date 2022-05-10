@@ -29,46 +29,43 @@
     <LinearLayout
         android:id="@+id/ms_tab_bar"
         android:layout_width="match_parent"
-        android:layout_height="65dp"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:background="#ffffff"
         android:orientation="horizontal"
         android:layout_marginBottom="5dp">
 
-        <TextView
+        <ImageView
             android:id="@+id/ms_tab_home"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:drawablePadding="3dp"
-            android:drawableTop="@drawable/tab_menu_map"
+            android:src="@drawable/tab_menu_map"
             android:gravity="center"
             android:padding="5dp"
-            android:text="地图"
             android:textSize="16sp" />
 
-        <TextView
+        <ImageView
             android:id="@+id/ms_tab_category"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:drawablePadding="3dp"
-            android:drawableTop="@drawable/tab_menu_work"
+            android:src="@drawable/tab_menu_work"
             android:gravity="center"
             android:padding="5dp"
-            android:text="工作"
             android:textSize="16sp" />
 
-        <TextView
+        <ImageView
             android:id="@+id/ms_tab_discover"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:drawablePadding="3dp"
-            android:drawableTop="@drawable/tab_menu_my"
+            android:src="@drawable/tab_menu_my"
             android:gravity="center"
             android:padding="5dp"
-            android:text="我的"
             android:textSize="16sp" />
 
     </LinearLayout>

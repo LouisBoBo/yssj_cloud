@@ -19,7 +19,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginTop="40dp"
-            android:src="@mipmap/order_success"/>
+            android:src="@mipmap/icon_cel"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -35,6 +35,8 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             android:layout_marginBottom="10dp"
             android:text="确定"
             android:gravity="center"

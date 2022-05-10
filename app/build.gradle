@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.mob.sdk'
 MobSDK {
-    appKey "XXXXXX"
-    appSecret "XXXXXXXXX"
+    appKey "35d3a423f206a"
+    appSecret "b0b940861a4068678dd920ae37796dd6"
     permissions {//不需要的权限可以在这里移除
         exclude "android.permission.RECEIVE_SMS", "android.permission.READ_SMS", "android.permission.READ_CONTACTS", "android.permission.BLUETOOTH"
     }
@@ -10,8 +10,8 @@ MobSDK {
     ShareSDK {
         devInfo {
             Wechat {//微信
-                appId "XXXXX"
-                appSecret "XXXXXXXXX"
+                appId "wx8c5fe3e40669c535"
+                appSecret "10d080a714d768427242e9b091d33959"
             }
             QQ {//QQ
                 appId "XXXXXX"
@@ -25,14 +25,30 @@ android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
+    signingConfigs {
+        config {
+            keyAlias 'key0'
+            keyPassword '20220430'
+            storeFile file('yssj_clound')
+            storePassword '20220430'
+        }
+    }
+
     defaultConfig {
         applicationId "com.yssj.myapplication"
-        minSdkVersion 22
+        minSdkVersion 24
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    // 自定义打包名称
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "YssjCloud_${buildType.name}.apk"
+        }
     }
 
     buildTypes {

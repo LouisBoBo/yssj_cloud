@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.kongzue.baseokhttp.util.Parameter;
+import com.xuexiang.xui.utils.WidgetUtils;
+import com.xuexiang.xui.widget.progress.loading.IMessageLoader;
 import com.yssj.myapplication.bean.Constant;
 import com.yssj.myapplication.bean.GrabOrderBean;
 import com.yssj.myapplication.bean.LoginInfoBean;
@@ -37,6 +39,8 @@ public class MsFragment extends Fragment {
     private int pageSize = 30;
     private SmartRefreshLayout refreshLayout;
 
+    public IMessageLoader mMessageLoader;//消息加载框
+
     private List<GrabOrderBean.GrabOrderListDTO> grabOrderList = new ArrayList<>();
 
 
@@ -57,6 +61,8 @@ public class MsFragment extends Fragment {
     }
 
     public void initView(){
+        getMessageLoader();
+
         GridLayoutManager device_manager = new GridLayoutManager(getContext(),1);
         myrecyclerview.setLayoutManager(device_manager);
         adapter = new CangraborderAdapter();
@@ -91,6 +97,7 @@ public class MsFragment extends Fragment {
             initData();
 
         });
+
     }
 
     public void initData(){
@@ -100,12 +107,14 @@ public class MsFragment extends Fragment {
         parameter.put("page",curPage);
         parameter.put("rows",pageSize);
 
+        mMessageLoader.show();
         HttpRequest.POST(getActivity(), HttpApi.GRABORDERS_GRABORDERSLIST, parameter, new BeanResponseListener<GrabOrderBean>() {
 
             @Override
             public void onResponse(GrabOrderBean bean, Exception error) {
                 refreshLayout.finishRefresh();
                 refreshLayout.finishLoadMore();
+                mMessageLoader.dismiss();
                 if(error == null){
 //                    XToastUtils.toast("请求成功");
                     if(curPage == 1){
@@ -116,5 +125,14 @@ public class MsFragment extends Fragment {
                 }
             }
         });
+    }
+
+    public IMessageLoader getMessageLoader() {
+        if (mMessageLoader == null) {
+            mMessageLoader = WidgetUtils.getMiniLoadingDialog(getActivity());
+            mMessageLoader.setCancelable(true);
+
+        }
+        return mMessageLoader;
     }
 }

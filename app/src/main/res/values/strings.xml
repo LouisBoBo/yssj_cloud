@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">云缝纫</string>
     <string name="del_stratety_permission">是否要清除所有缓存数据？</string>
     <string name="tip_yes">确定</string>
     <string name="tip_no">取消</string>

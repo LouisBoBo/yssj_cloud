@@ -55,7 +55,7 @@ public class AccountSecurityActivity extends BaseActivity implements View.OnClic
                 startActivity(DoBindingPhoneActivity.class);
             }
         }else if(view == binding.headviewBackImg){
-            finish();
+            onBackPressed();
         }
     }
 

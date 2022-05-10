@@ -44,7 +44,7 @@ public class FeedBackActivity extends BaseActivity implements View.OnClickListen
     @Override
     public void onClick(View view) {
         if (view == binding.headviewBackImg) {
-            finish();
+            onBackPressed();
         }else if(view == binding.btnSubmit){
             if(binding.commentEdit.getText().length()==0){
                 XToastUtils.toast("请填写反馈内容");

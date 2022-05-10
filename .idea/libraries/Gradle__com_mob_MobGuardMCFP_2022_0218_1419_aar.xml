@@ -1,9 +1,10 @@
 <component name="libraryTable">
   <library name="Gradle: com.mob:MobGuardMCFP:2022.0218.1419@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f04b0d4f36db060389da1cac846a2da3/jetified-MobGuardMCFP-2022.0218.1419/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f04b0d4f36db060389da1cac846a2da3/jetified-MobGuardMCFP-2022.0218.1419/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f04b0d4f36db060389da1cac846a2da3/jetified-MobGuardMCFP-2022.0218.1419/AndroidManifest.xml" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ed5c8673caaa675b6cbecd73e4e022c4/jetified-MobGuardMCFP-2022.0218.1419/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ed5c8673caaa675b6cbecd73e4e022c4/jetified-MobGuardMCFP-2022.0218.1419/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ed5c8673caaa675b6cbecd73e4e022c4/jetified-MobGuardMCFP-2022.0218.1419/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
