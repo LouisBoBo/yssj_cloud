@@ -13,6 +13,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.xuexiang.xui.utils.StatusBarUtils;
 import com.yssj.myapplication.base.BaseActivity;
 import com.yssj.myapplication.bean.Constant;
 import com.yssj.myapplication.eventbus.EventEnum;
@@ -51,12 +52,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EventBus.getDefault().register(this);
 
-        //设置无标题
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        //全屏
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        setStatusBarColor(getActivity(),R.color.pink_color);
+
+        EventBus.getDefault().register(this);
 
         overridePendingTransition(R.anim.slide_left_in,R.anim.slide_right_out);
 

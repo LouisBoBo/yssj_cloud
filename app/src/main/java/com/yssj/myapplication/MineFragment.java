@@ -3,6 +3,7 @@ package com.yssj.myapplication;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 import com.yssj.myapplication.bean.Constant;
@@ -24,6 +26,8 @@ import com.yssj.myapplication.http.HttpApi;
 import com.yssj.myapplication.ui.mine.AccountBalanceActivity;
 import com.yssj.myapplication.ui.mine.SetttingActivity;
 import com.yssj.myapplication.ui.mine.UserInfoActivity;
+import com.yssj.myapplication.utils.GlideCircleWithBorder;
+import com.yssj.myapplication.utils.RoundPicture;
 import com.yssj.myapplication.utils.XToastUtils;
 
 import org.greenrobot.eventbus.EventBus;
@@ -40,6 +44,7 @@ public class MineFragment extends Fragment implements View.OnClickListener{
     private View view_setting;
     private View view_head;
     private ImageView head_img;
+    private RoundPicture iv_img;
     private TextView head_title;
     private Context mcontext;
 
@@ -91,9 +96,11 @@ public class MineFragment extends Fragment implements View.OnClickListener{
 
         head_title.setText(nick_name);
 
-        RequestOptions options = new RequestOptions().error(R.drawable.bg_base_cycle).bitmapTransform(new RoundedCorners(100));//图片圆角为30
-        Glide.with(getActivity()).load("https://img0.baidu.com/it/u=202312204,2771333250&fm=253&fmt=auto&app=138&f=JPEG?w=658&h=439") //图片地址
-                .apply(options)
+        String ssss  ="http://h.hiphotos.baidu.com/image/pic/item/728da9773912b31b8f9045408b18367adbb4e1df.jpg";
+        Glide.with(getActivity()).load(ssss)
+                .apply(new RequestOptions().error(this.getResources().getDrawable(R.drawable.bg_base_cycle))
+                        .placeholder(R.drawable.bg_base_cycle).centerCrop().diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .transform(new GlideCircleWithBorder(getActivity(), 3, Color.parseColor("#FF4081"))))
                 .into(head_img);
 
 
@@ -117,6 +124,7 @@ public class MineFragment extends Fragment implements View.OnClickListener{
         TextView setting_title = view_setting.findViewById(R.id.content_text);
         setting_title.setText("设置");
     }
+
 
     @Override
     public void onClick(View view) {

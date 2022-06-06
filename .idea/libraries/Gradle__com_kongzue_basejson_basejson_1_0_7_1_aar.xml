@@ -1,10 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.kongzue.basejson:basejson:1.0.7.1@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/2af17a7fba1636f16afed54d26bb8beb/jetified-basejson-1.0.7.1/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/43a3bdf8ab3f98a6ed5c0e8338bcb8cf/jetified-basejson-1.0.7.1/AndroidManifest.xml" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/43a3bdf8ab3f98a6ed5c0e8338bcb8cf/jetified-basejson-1.0.7.1/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/43a3bdf8ab3f98a6ed5c0e8338bcb8cf/jetified-basejson-1.0.7.1/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/28a7552fe135d21a7bb072eb0d4e114e/jetified-basejson-1.0.7.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/28a7552fe135d21a7bb072eb0d4e114e/jetified-basejson-1.0.7.1/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/28a7552fe135d21a7bb072eb0d4e114e/jetified-basejson-1.0.7.1/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

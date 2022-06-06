@@ -9,6 +9,7 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.xuexiang.xui.utils.StatusBarUtils;
 import com.yssj.myapplication.base.BaseActivity;
 import com.yssj.myapplication.bean.BaseBean;
 import com.yssj.myapplication.databinding.ActivityHomeBinding;
@@ -22,6 +23,8 @@ import com.kongzue.baseokhttp.util.Parameter;
 import com.mob.MobSDK;
 import com.xuexiang.xui.XUI;
 
+import static com.yssj.myapplication.R.drawable.ic_launcher_background;
+
 public class HomePageActivity extends BaseActivity {
     private Context mcontext;
     private TextView myorder_btn;
@@ -32,12 +35,18 @@ public class HomePageActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE);//去掉标题栏
+
+
+        //设置沉浸式状态栏
+        StatusBarUtils.translucent(this);
+
+        //设置无标题
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        setStatusBarColor(getActivity(),R.color.pink_color);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN); //隐藏状态栏
+
 
         mcontext = this;
-
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        getWindow().setFlags( WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         binding = ActivityHomeBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
@@ -53,20 +62,6 @@ public class HomePageActivity extends BaseActivity {
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "近期即将上线，敬请期待",
                         Toast.LENGTH_SHORT).show();
-
-//                mMessageLoader.show();
-//                JsonMap map = new JsonMap();
-//                Parameter parameter = new Parameter();
-
-//                HttpRequest.JSONPOST(getActivity(), HttpApi.LOGIN_GET_PUBLIC_KEY, map, new BeanResponseListener<BaseBean>() {
-//                    @Override
-//                    public void onResponse(BaseBean lampDeviceListBean, Exception error) {
-//                        mMessageLoader.dismiss();
-//                        if(error == null){
-//                            XToastUtils.toast("请求成功");
-//                        }
-//                    }
-//                });
             }
         });
 

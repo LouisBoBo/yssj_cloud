@@ -15,6 +15,8 @@ import com.kongzue.baseokhttp.util.Parameter;
 import com.yssj.myapplication.R;
 import com.yssj.myapplication.bean.AuthKeyTools;
 import com.yssj.myapplication.bean.GrabOrderDetailBean;
+import com.yssj.myapplication.eventbus.EventEnum;
+import com.yssj.myapplication.eventbus.EventMessage;
 import com.yssj.myapplication.http.BeanResponseListener;
 import com.yssj.myapplication.http.HttpApi;
 import com.yssj.myapplication.http.HttpRequest;
@@ -23,6 +25,8 @@ import com.yssj.myapplication.ui.cangraborder.Adapter.CangraborderAdapter;
 import com.yssj.myapplication.utils.TokenUtils;
 import com.yssj.myapplication.utils.XToastUtils;
 import com.yssj.network.YConn;
+
+import org.greenrobot.eventbus.EventBus;
 
 public class CangraborderDialog extends Dialog implements View.OnClickListener {
     private Context context;
@@ -116,35 +120,35 @@ public class CangraborderDialog extends Dialog implements View.OnClickListener {
         }
 
 
-        JsonMap map = new JsonMap();
-        map.put("stock_types",orders);
-        map.put("id",this.grab_orders_id);
-        map.put("channel","18");
-        map.put("app_id",HttpApi.APP_ID);
-        map.put("appVersion",HttpApi.APP_VERSION);
-        map.put("version",HttpApi.VERSION_CODE);
-        map.put("version", HttpApi.VERSION_CODE);
+//        JsonMap map = new JsonMap();
+//        map.put("stock_types",orders);
+//        map.put("id",this.grab_orders_id);
+//        map.put("channel","18");
+//        map.put("app_id",HttpApi.APP_ID);
+//        map.put("appVersion",HttpApi.APP_VERSION);
+//        map.put("version",HttpApi.VERSION_CODE);
+//        map.put("version", HttpApi.VERSION_CODE);
 
-        JSONObject body = new JSONObject();
-        body.put("stock_types",orders);
-        body.put("id",this.grab_orders_id);
-        body.put("channel","18");
-        body.put("app_id",HttpApi.APP_ID);
-        body.put("appVersion",HttpApi.APP_VERSION);
-        body.put("version",HttpApi.VERSION_CODE);
-        body.put("token", TokenUtils.getToken());
+//        JSONObject body = new JSONObject();
+//        body.put("stock_types",orders);
+//        body.put("id",this.grab_orders_id);
+//        body.put("channel","18");
+//        body.put("app_id",HttpApi.APP_ID);
+//        body.put("appVersion",HttpApi.APP_VERSION);
+//        body.put("version",HttpApi.VERSION_CODE);
+//        body.put("token", TokenUtils.getToken());
 
-        String ss = HttpApi.USERGRABORDERS_ADDGRABORDERS + "?" + parameter.toParameterString();
-        String authKey = null;
-        try {
-            authKey = AuthKeyTools.builderURL(ss,"yunshangshiji");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        String I10o = YConn.test(authKey);
-
-        body.put("authKey",authKey);
-        body.put("I10o",I10o);
+//        String ss = HttpApi.USERGRABORDERS_ADDGRABORDERS + "?" + parameter.toParameterString();
+//        String authKey = null;
+//        try {
+//            authKey = AuthKeyTools.builderURL(ss,"yunshangshiji");
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        String I10o = YConn.test(authKey);
+//
+//        body.put("authKey",authKey);
+//        body.put("I10o",I10o);
 
 
         HttpRequest.POST(this.context, HttpApi.USERGRABORDERS_ADDGRABORDERS, parameter, new BeanResponseListener<GrabOrderDetailBean>() {
@@ -156,6 +160,10 @@ public class CangraborderDialog extends Dialog implements View.OnClickListener {
                     CangraborderSuccessDialog dialog = new CangraborderSuccessDialog(getContext());
                     dialog.show();
                 }
+
+                EventMessage eventMessage = new EventMessage();
+                eventMessage.setEventEnum(EventEnum.GRAB_ORDER_SUCCESS);
+                EventBus.getDefault().post(eventMessage);
             }
         });
     }

@@ -18,6 +18,8 @@ import com.xuexiang.xui.utils.WidgetUtils;
 import com.xuexiang.xui.widget.progress.loading.IMessageLoader;
 import com.yssj.myapplication.bean.GrabOrderBean;
 import com.yssj.myapplication.bean.UserGrabOrderBean;
+import com.yssj.myapplication.eventbus.EventEnum;
+import com.yssj.myapplication.eventbus.EventMessage;
 import com.yssj.myapplication.http.BeanResponseListener;
 import com.yssj.myapplication.http.HttpApi;
 import com.yssj.myapplication.http.HttpRequest;
@@ -27,6 +29,10 @@ import com.yssj.myapplication.ui.cangraborder.CangraborderDetaillActivity;
 import com.yssj.myapplication.ui.robbedorder.GrabOrderDetailActivity;
 import com.yssj.myapplication.utils.FTPClientFunctions;
 import com.yssj.myapplication.utils.XToastUtils;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,6 +65,14 @@ public class WorkFragment extends Fragment implements View.OnClickListener {
 
     public IMessageLoader mMessageLoader;//消息加载框
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEven(EventMessage eventMessage) {
+        if (eventMessage.getEventEnum() == EventEnum.GRAB_ORDER_SUCCESS) {
+            curPage = 1;
+            initData();
+        }
+    }
+
     public WorkFragment(String content) {
         this.content = content;
     }
@@ -76,6 +90,8 @@ public class WorkFragment extends Fragment implements View.OnClickListener {
 
     public void initView(){
         getMessageLoader();
+
+        EventBus.getDefault().register(this);
 
         GridLayoutManager device_manager = new GridLayoutManager(getContext(),1);
         myrecyclerview.setLayoutManager(device_manager);
@@ -128,7 +144,6 @@ public class WorkFragment extends Fragment implements View.OnClickListener {
                 refreshLayout.finishLoadMore();
                 mMessageLoader.dismiss();
                 if(error == null){
-                    XToastUtils.toast("请求成功");
                     if(curPage == 1){
                         grabOrderList.clear();
                     }

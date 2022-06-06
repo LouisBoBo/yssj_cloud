@@ -13,7 +13,7 @@ public class HttpApi {
     /***
      * 登陆接口
      */
-    public static String ACCOUNT_LOGIN = YSS_URL_ANDROID + "user/login";
+    public static String ACCOUNT_LOGIN = YSS_URL_ANDROID + "user/userLogin";
 
     /**
      * 退出登录

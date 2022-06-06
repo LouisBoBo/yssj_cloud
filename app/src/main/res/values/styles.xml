@@ -29,21 +29,29 @@
         <item name="android:windowContentTransitions">true</item>
     </style>
 
-    <style name="SplashThemeOld" parent="android:Theme.NoTitleBar.Fullscreen">
-
-        <item name="android:windowIsTranslucent">false</item>
-        <item name="android:windowNoTitle">true</item>
+    <!--全屏主题-->
+    <style name="NoActivityFullscreen" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
         <item name="android:windowFullscreen">true</item>
-        <item name="android:windowBackground">@drawable/config_bg_splash</item>
-
+        <item name="android:windowContentOverlay">@null</item>
     </style>
 
-    <style name="AppTheme.Launch">
+    //style.xml中
+    <style name="FullScreen" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.Launch" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="xui_config_color_splash_bg">@color/xui_config_color_white</item>
         <item name="xui_config_app_logo_bottom">@dimen/xui_config_app_logo_bottom</item>
         <item name="xui_config_company_logo_bottom">@dimen/xui_config_company_logo_bottom</item>
         <item name="android:windowBackground">@drawable/config_bg_splash</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
         <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
     </style>
 
     <!--窗体背景，这个背景能在第一时间显示, 避免启动时白屏，黑屏问题-->

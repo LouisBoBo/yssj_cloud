@@ -1,9 +1,11 @@
 package com.yssj.myapplication.ui.cangraborder;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
@@ -11,6 +13,7 @@ import androidx.annotation.Nullable;
 import com.bumptech.glide.Glide;
 import com.kongzue.baseokhttp.util.Parameter;
 import com.yssj.myapplication.Loginactivity;
+import com.yssj.myapplication.R;
 import com.yssj.myapplication.base.BaseActivity;
 import com.yssj.myapplication.bean.Constant;
 import com.yssj.myapplication.bean.GrabOrderBean;
@@ -24,6 +27,8 @@ import com.yssj.myapplication.utils.XToastUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.yssj.myapplication.R.color.pink_color;
 
 public class CangraborderDetaillActivity extends BaseActivity {
     private ActivityCangraborderDatailBinding binding;
@@ -51,7 +56,9 @@ public class CangraborderDetaillActivity extends BaseActivity {
         initData();
     }
 
+    @SuppressLint("ResourceAsColor")
     public void initView(){
+
         binding.tvName.setText(grabOrderDetailBean.getGrabOrders().getName()+"-"+grabOrderDetailBean.getGrabOrders().getShop_code());
         binding.tvColor.setText(grabOrderDetailBean.getGrabOrders().getColor());
         binding.tvOrderNum.setText(grabOrderDetailBean.getGrabOrders().getShop_code());

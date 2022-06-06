@@ -1,14 +1,20 @@
 package com.yssj.myapplication;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 
+import androidx.annotation.ColorInt;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,6 +25,8 @@ import com.yssj.myapplication.bean.Constant;
 import com.yssj.myapplication.bean.GrabOrderBean;
 import com.yssj.myapplication.bean.LoginInfoBean;
 import com.yssj.myapplication.bean.MD5Tools;
+import com.yssj.myapplication.eventbus.EventEnum;
+import com.yssj.myapplication.eventbus.EventMessage;
 import com.yssj.myapplication.http.BeanResponseListener;
 import com.yssj.myapplication.http.HttpApi;
 import com.yssj.myapplication.http.HttpRequest;
@@ -26,6 +34,10 @@ import com.yssj.myapplication.ui.cangraborder.Adapter.CangraborderAdapter;
 import com.yssj.myapplication.ui.cangraborder.CangraborderDetaillActivity;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.yssj.myapplication.utils.XToastUtils;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +56,14 @@ public class MsFragment extends Fragment {
     private List<GrabOrderBean.GrabOrderListDTO> grabOrderList = new ArrayList<>();
 
 
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onEven(EventMessage eventMessage) {
+        if (eventMessage.getEventEnum() == EventEnum.GRAB_ORDER_SUCCESS) {
+            curPage = 1;
+            initData();
+        }
+    }
+
     public MsFragment(String content) {
         this.content = content;
     }
@@ -61,7 +81,10 @@ public class MsFragment extends Fragment {
     }
 
     public void initView(){
+
         getMessageLoader();
+
+        EventBus.getDefault().register(this);
 
         GridLayoutManager device_manager = new GridLayoutManager(getContext(),1);
         myrecyclerview.setLayoutManager(device_manager);
@@ -134,5 +157,12 @@ public class MsFragment extends Fragment {
 
         }
         return mMessageLoader;
+    }
+
+    public static void setSimpleStatusBarColor(Activity activity, @ColorInt int color) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            activity.getWindow().setStatusBarColor(color);
+        }
     }
 }

@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.mob.sdk'
 MobSDK {
-    appKey "35d3a423f206a"
-    appSecret "b0b940861a4068678dd920ae37796dd6"
+    appKey "wxec61c309c2e852c2"
+    appSecret "a75b13271fc4a3f60937ee805ad92a3e"
     permissions {//不需要的权限可以在这里移除
         exclude "android.permission.RECEIVE_SMS", "android.permission.READ_SMS", "android.permission.READ_CONTACTS", "android.permission.BLUETOOTH"
     }
@@ -10,8 +10,8 @@ MobSDK {
     ShareSDK {
         devInfo {
             Wechat {//微信
-                appId "wx8c5fe3e40669c535"
-                appSecret "10d080a714d768427242e9b091d33959"
+                appId "wxec61c309c2e852c2"
+                appSecret "a75b13271fc4a3f60937ee805ad92a3e"
             }
             QQ {//QQ
                 appId "XXXXXX"
@@ -82,7 +82,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'androidx.viewpager:viewpager:1.0.0'
     implementation project(path: ':xui_lib')
-    testImplementation 'junit:junit:4.+'
+//    testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
     compile 'commons-net:commons-net:3.5'
@@ -104,4 +104,10 @@ dependencies {
     implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-14'
 
     implementation 'org.greenrobot:eventbus:3.1.1'
+
+    compile 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:+'
 }
+
+//repositories {
+//    maven { url 'http://repo1.maven.org/maven2' }
+//}

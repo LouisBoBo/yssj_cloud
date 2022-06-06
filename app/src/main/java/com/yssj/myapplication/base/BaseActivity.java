@@ -32,7 +32,7 @@ public class BaseActivity extends AppCompatActivity {
         XUI.initTheme(this);
         getMessageLoader("正在加载中");
 
-        setStatusBarColor(getActivity(),R.color.black);
+        setStatusBarColor(getActivity(),R.color.pink_color);
 
         // 设置activity的窗口属性为contentFeature,即可使用切换动画
         getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);

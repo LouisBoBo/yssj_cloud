@@ -1,8 +1,13 @@
 package com.yssj.myapplication.activity;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Window;
+import android.view.WindowInsets;
+import android.view.WindowInsetsController;
 import android.view.WindowManager;
 
 import androidx.annotation.Nullable;
@@ -22,10 +27,7 @@ public class NewSplashActivity extends BaseActivity {
 
         //设置无标题
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        //全屏
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
-        supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
+        setStatusBarColor(getActivity(),R.color.pink_color);
 
         setContentView(R.layout.activity_splash);
         new Timer().schedule(new TimerTask() {

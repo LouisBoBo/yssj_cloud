@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <ImageView
-        android:src="@drawable/newest_startview"
+        android:src="@drawable/config_bg_splash"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
         android:layout_width="match_parent"

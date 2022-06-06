@@ -70,7 +70,7 @@ public class GrabOrderDetailActivity extends BaseActivity implements View.OnClic
         binding.tvRestoreAddress.setText(grabOrderDetailBean.getUserGrabOrders().getRestore_address().getAddress());
         binding.tvHandoverMember.setText(grabOrderDetailBean.getUserGrabOrders().getRestore_address().getConsignee()+" "+grabOrderDetailBean.getUserGrabOrders().getRestore_address().getPhone());
         binding.tvQc.setText(getqc(grabOrderDetailBean.getUserGrabOrders().getQc_status()));
-        binding.tvProcessCost.setText(String.valueOf(grabOrderDetailBean.getUserGrabOrders().getMoney()));
+        binding.tvProcessCost.setText(String.valueOf(grabOrderDetailBean.getUserGrabOrders().getMoney())+(+ grabOrderDetailBean.getUserGrabOrders().getQc_status()==4?"已到账":""));
 
         String str_time = getTime(grabOrderDetailBean.getUserGrabOrders().getCreate_date());
         getCountDownTime(getStrTime(str_time));
@@ -95,6 +95,7 @@ public class GrabOrderDetailActivity extends BaseActivity implements View.OnClic
             binding.confirm.setOnClickListener(this::onClick);
         }else{
             binding.confirm.setText("裁片已交回");
+            binding.tvOverTime.setText("已交货");
             binding.confirm.setBackgroundResource(R.color.gray_color);
         }
     }
@@ -188,7 +189,7 @@ public class GrabOrderDetailActivity extends BaseActivity implements View.OnClic
         long currentTime = System.currentTimeMillis();
 
         //剩余毫秒数
-        long lcc_time = (Long.valueOf(cc_time)+240*60*60)*1000 - currentTime;
+        long lcc_time = (Long.valueOf(cc_time)+48*60*60)*1000 - currentTime;
 
         return lcc_time;
     }
@@ -222,6 +223,7 @@ public class GrabOrderDetailActivity extends BaseActivity implements View.OnClic
     //倒计时
     private void getCountDownTime(long timeStemp) {
         if(timeStemp <=0){
+            binding.tvOverTime.setText("剩余时间：" + 0 + "小时" + 0 + "分钟" + 0 + "秒");
             return;
         }
 
@@ -234,7 +236,8 @@ public class GrabOrderDetailActivity extends BaseActivity implements View.OnClic
                 long minute = (l - day * (1000 * 24 * 60 * 60) - hour * (1000 * 60 * 60)) / (1000 * 60); //单位分
                 long second = (l - day * (1000 * 24 * 60 * 60) - hour * (1000 * 60 * 60) - minute * (1000 * 60)) / 1000;//单位秒
 
-                binding.tvOverTime.setText("剩余时间：" + hour + "小时" + minute + "分钟" + second + "秒");
+                long H = day*24+hour;
+                binding.tvOverTime.setText("剩余时间：" + H + "小时" + minute + "分钟" + second + "秒");
             }
 
             @Override
