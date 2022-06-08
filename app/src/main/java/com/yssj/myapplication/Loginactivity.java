@@ -23,6 +23,7 @@ import com.yssj.myapplication.bean.WXEventBean;
 import com.yssj.myapplication.http.BeanResponseListener;
 import com.yssj.myapplication.http.HttpApi;
 import com.yssj.myapplication.http.HttpRequest;
+import com.yssj.myapplication.http.SSLSocketManager;
 import com.yssj.myapplication.utils.TokenUtils;
 import com.yssj.myapplication.utils.XToastUtils;
 import com.kongzue.baseokhttp.util.Parameter;
@@ -83,6 +84,7 @@ public class Loginactivity extends BaseActivity {
             @Override
             public void onClick(View v) {
 
+                //检验是否安装微信 如安装去授权登录
                 if (MyApplication.getApi()!=null){
                     if (!MyApplication.getApi().isWXAppInstalled()) {
 //                        ToastUtils.setToastTextview(WXLoginActivity.this, "您的设备未安装微信客户端");
@@ -94,8 +96,6 @@ public class Loginactivity extends BaseActivity {
                         MyApplication.getApi().sendReq(req);
                     }
                 }
-
-//                getWeiXin();//微信授权登录
             }
         });
 
@@ -107,10 +107,6 @@ public class Loginactivity extends BaseActivity {
                 finish();
             }
         });
-
-//        regToWx();
-
-
     }
 
 
@@ -251,7 +247,6 @@ public class Loginactivity extends BaseActivity {
      * @param code
      */
     private void getAccessToken(String code) {
-//        createProgressDialog();
         //获取授权
         StringBuffer loginUrl = new StringBuffer();
         loginUrl.append("https://api.weixin.qq.com/sns/oauth2/access_token")
@@ -264,7 +259,12 @@ public class Loginactivity extends BaseActivity {
                 .append("&grant_type=authorization_code");
         Log.d("urlurl", loginUrl.toString());
 
-        OkHttpClient okHttpClient = new OkHttpClient();
+        //创建OkHttpClient对象
+        OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .sslSocketFactory(SSLSocketManager.getSSLSocketFactory())//配置
+                .hostnameVerifier(SSLSocketManager.getHostnameVerifier())//配置
+                .build();
+
         final Request request = new Request.Builder()
                 .url(loginUrl.toString())
                 .get()//默认就是GET请求，可以不写
@@ -274,7 +274,6 @@ public class Loginactivity extends BaseActivity {
             @Override
             public void onFailure(Call call, IOException e) {
                 Log.d("fan12", "onFailure: ");
-//                mProgressDialog.dismiss();
             }
 
             @Override
@@ -289,44 +288,66 @@ public class Loginactivity extends BaseActivity {
                     openId = jsonObject.getString("openid");
 
                     access_token = access;
-                    if(access_token != null){
-                        getWeiXin();
+                    if(access != null && openId != null){
+                        getUserInfo(access,openId);
                     }
 
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-
-                Log.d("access===============", access);
             }
         });
 
     }
 
+    /**
+     * 获取用户信息
+     */
+    public void getUserInfo(String access,String openId){
+        String url = "https://api.weixin.qq.com/sns/userinfo?access_token=" +
+                access + "&openid=" + openId;
 
+        //创建OkHttpClient对象
+        OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                .sslSocketFactory(SSLSocketManager.getSSLSocketFactory())//配置
+                .hostnameVerifier(SSLSocketManager.getHostnameVerifier())//配置
+                .build();
 
-//    /**
-//     * 获取授权口令
-//     */
-//    private void getAccessToken(String code) {
-//        Parameter parameter = new Parameter();
-//        String url = "https://api.weixin.qq.com/sns/oauth3/access_token?" +
-//                "appid=" + "wxec61c309c2e852c2" +
-//                "&secret=" + "a75b13271fc4a3f60937ee805ad92a3e" +
-//                "&code=" + code +
-//                "&grant_type=authorization_code";
-//
-//
-//        HttpRequest.POST(getActivity(), url, parameter, new BeanResponseListener<LoginInfoBean>() {
-//
-//                    @Override
-//                    public void onResponse(LoginInfoBean bean, Exception error) {
-//                        mMessageLoader.dismiss();
-//                        if(error == null){
-//                            XToastUtils.toast("请求成功");
-//
-//                        }
-//                    }
-//                });
-//    }
+        final Request request = new Request.Builder()
+                .url(url.toString())
+                .get()//默认就是GET请求，可以不写
+                .build();
+        Call call = okHttpClient.newCall(request);
+        call.enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                Log.d("fan12", "onFailure: ");
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String responseInfo= response.body().string();
+                Log.d("fan12", "onResponse: " +responseInfo);
+                String unionid = "";
+                String nickname = "";
+                String headimgurl = "";
+                String sex = "";
+                try {
+                    JSONObject jsonObject = new JSONObject(responseInfo);
+
+                    unionid = jsonObject.getString("unionid");
+                    nickname = jsonObject.getString("nickname");
+                    sex = jsonObject.getString("sex");
+                    headimgurl = jsonObject.getString("headimgurl");
+
+                    if(unionid.length()>0 && openId.length()>0 && nickname.length()>0&& headimgurl.length()>0 && sex.length()>0){
+                        loginHttp(unionid,openId,nickname,headimgurl,sex);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
+    }
 }
