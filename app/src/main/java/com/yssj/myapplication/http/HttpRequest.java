@@ -263,6 +263,7 @@ public class HttpRequest extends BaseOkHttp {
             parameter.put("channel","18");
             parameter.put("app_id",HttpApi.APP_ID);
             parameter.put("appVersion",HttpApi.APP_VERSION);
+            parameter.put("version",HttpApi.VERSION_CODE);
 
             HttpRequest httpRequest = new HttpRequest();
             httpRequest.context = new WeakReference<Context>(context);

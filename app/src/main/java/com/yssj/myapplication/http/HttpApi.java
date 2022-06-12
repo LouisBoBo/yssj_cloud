@@ -5,7 +5,7 @@ public class HttpApi {
 
     public static String YSS_URL_ANDROID = "http://123.58.33.33/cloud-api/";
     public static String YSS_IMGURL = "http://img.yiline.com/";
-    public static String APP_ID = "wx8c5fe3e40669c535";
+    public static String APP_ID = "wxec61c309c2e852c2";
     public static String APP_VERSION = "V3.8.6";
     public static String VERSION_CODE = "V1.32";
 

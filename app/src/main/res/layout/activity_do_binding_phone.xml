@@ -135,11 +135,11 @@
                 android:clickable="true" />
         </LinearLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_alignParentBottom="true"
-            android:background="#f0f0f0" />
+<!--        <View-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="1dp"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:background="#f0f0f0" />-->
 
         <LinearLayout
             android:id="@+id/ll_get_code"
@@ -183,6 +183,49 @@
                 android:background="@color/pink_color"
                 android:clickable="true" />
         </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="#f0f0f0" />
+
+        <RelativeLayout
+            android:id="@+id/et_pwd_rl"
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:background="@drawable/white_fanzao"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <EditText
+                android:id="@+id/et_pwd"
+                android:layout_width="fill_parent"
+                android:layout_height="45dp"
+                android:background="@null"
+                android:gravity="center_vertical"
+                android:hint="请输入登录密码（6-12位）"
+                android:paddingLeft="10dp"
+                android:maxLines="1"
+                android:digits="0123456789abcdefghigklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                android:textCursorDrawable="@null"
+                android:maxLength="12"
+                android:textColor="#222222"
+                android:textColorHint="#a5a5a5"
+                android:inputType="textPassword"
+                android:textSize="16sp" />
+
+
+            <ImageView
+                android:id="@+id/pwd_clean"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:scaleType="center"
+                android:visibility="gone"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
 
         <Button
             android:id="@+id/btn_next_step_next"

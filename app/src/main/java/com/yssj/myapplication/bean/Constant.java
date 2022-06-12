@@ -13,6 +13,6 @@ public class Constant {
     public static final String DEVICE = "1";
     public static final String VERSION = "V1.32";
     public static final String APPVERSION = "V3.8.5";
-    public static final String APP_ID = "wx8c5fe3e40669c535";
+    public static final String APP_ID = "wxec61c309c2e852c2";
     public static final String CHANNEL = "18";
 }

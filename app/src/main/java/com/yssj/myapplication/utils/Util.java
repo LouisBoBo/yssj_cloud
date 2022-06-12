@@ -1,7 +1,25 @@
 package com.yssj.myapplication.utils;
 
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.widget.ImageView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Random;
 
 public class Util {
     /**
@@ -98,4 +116,68 @@ public class Util {
             return source;
         }
     }
+
+    public static void getPicture(final Context context, final ImageView im_iv, final String mUrl) {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+
+                    URL url = new URL(mUrl);
+//                URL url = new URL("http://www.52yifu.wang/cloud-api/vcode/getVcode?version=V1.31&phone=13333333333&imei=866479024413139");
+                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                    conn.setRequestMethod("GET");
+                    conn.setReadTimeout(10000);
+
+                    if (conn.getResponseCode() == 200) {
+                        InputStream fis = conn.getInputStream();
+                        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                        byte[] bytes = new byte[1024];
+                        int length = -1;
+                        while ((length = fis.read(bytes)) != -1) {
+                            bos.write(bytes, 0, length);
+                        }
+                        final byte[] picBytes = bos.toByteArray();
+                        bos.close();
+                        fis.close();
+
+//						Message message = new Message();
+//						message.what = 99;
+//						handle.sendMessage(message);
+                        final String type = conn.getContentType();
+                        ((Activity) context).runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (picBytes != null) {
+                                    if ("image/png".equals(type)) {
+                                        Bitmap bitmap = BitmapFactory.decodeByteArray(picBytes, 0, picBytes.length);
+                                        im_iv.setImageBitmap(bitmap);
+                                    } else {
+                                        String str = picBytes.toString();
+                                        JSONObject j = null;
+                                        try {
+                                            j = new JSONObject(new String(picBytes));
+//                                            String message3 = j.has("message") ? j.getString(Json.RetInfo.message) : "";
+                                        } catch (JSONException e) {
+                                            e.printStackTrace();
+                                        }
+
+
+                                    }
+
+                                }
+                            }
+                        });
+
+                    } else {
+//						ToastUtil.showMyToast(context, "请稍候再试！",1000);
+                    }
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
+    }
+
 }
