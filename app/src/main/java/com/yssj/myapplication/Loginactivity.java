@@ -163,10 +163,12 @@ public class Loginactivity extends BaseActivity {
 
             //判断是否是从homepage跳转过来
             if (isfirstlogin !=null && isfirstlogin.equals("1")) {
-                startActivity(new Intent(Loginactivity.this, MainActivity.class));
-                finish();
+                onBackPressed();
+                startActivity(new Intent(getActivity(), MainActivity.class));
+                Loginactivity.this.finish();
             }else {
-                finish();
+                onBackPressed();
+                Loginactivity.this.finish();
             }
         }
     }

@@ -9,6 +9,7 @@ import android.view.View;
 import androidx.annotation.Nullable;
 
 import com.yssj.myapplication.Loginactivity;
+import com.yssj.myapplication.MainActivity;
 import com.yssj.myapplication.R;
 import com.yssj.myapplication.base.BaseActivity;
 import com.yssj.myapplication.bean.LoginInfoBean;
@@ -100,13 +101,14 @@ public class SetttingActivity extends BaseActivity implements View.OnClickListen
                     eventMessage.setEventEnum(EventEnum.LOGIN_OUT_SUCCESS);
                     EventBus.getDefault().post(eventMessage);
 
-                    finish();
-
                     Intent intent = new Intent(getActivity(), Loginactivity.class);
                     Bundle bundle = new Bundle();
                     bundle.putString("isfirstlogin", "0");
                     intent.putExtras(bundle);
                     startActivity(intent);
+
+                    SetttingActivity.this.finish();
+                    getActivity().finish();
                 }
             }
 

@@ -65,8 +65,8 @@
     <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-common:2.1.0" level="project" />
     <orderEntry type="library" name="Gradle: androidx.arch.core:core-common:2.1.0" level="project" />
     <orderEntry type="library" name="Gradle: androidx.annotation:annotation:1.1.0" level="project" />
-    <orderEntry type="library" name="Gradle: com.mob:MobGUIULT:2022.0516.1526" level="project" />
-    <orderEntry type="library" name="Gradle: com.mob:MobSupportV1:2022.0516.1526" level="project" />
+    <orderEntry type="library" name="Gradle: com.mob:MobGUIULT:2022.0527.1615" level="project" />
+    <orderEntry type="library" name="Gradle: com.mob:MobSupportV1:2022.0527.1615" level="project" />
     <orderEntry type="library" name="Gradle: cn.sharesdk:ShareSDK-Wechat:3.9.9" level="project" />
     <orderEntry type="library" name="Gradle: cn.sharesdk:ShareSDK-Wechat-Core:3.9.9" level="project" />
     <orderEntry type="library" name="Gradle: cn.sharesdk:ShareSDK-QQ:3.9.9" level="project" />
@@ -109,7 +109,7 @@
     <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-livedata-core:2.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.arch.core:core-runtime:2.0.0@aar" level="project" />
     <orderEntry type="library" name="Gradle: androidx.interpolator:interpolator:1.0.0@aar" level="project" />
-    <orderEntry type="library" name="Gradle: com.mob:MobCoreULT:2022.0516.1526@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.mob:MobCoreULT:2022.0527.1615@aar" level="project" />
     <orderEntry type="library" name="Gradle: cn.smssdk:SMSSDK:3.7.5@aar" level="project" />
     <orderEntry type="library" name="Gradle: cn.smssdk:ShortMessageSDKGUI:3.7.5@aar" level="project" />
     <orderEntry type="library" name="Gradle: cn.sharesdk:ShareSDK:3.9.9@aar" level="project" />

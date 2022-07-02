@@ -61,6 +61,7 @@ public class MineFragment extends Fragment implements View.OnClickListener{
             fTransaction.hide(this);
             fTransaction.commit();
         }
+
     }
 
     @Override

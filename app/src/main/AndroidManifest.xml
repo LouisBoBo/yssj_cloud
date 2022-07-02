@@ -56,6 +56,7 @@
             android:configChanges="screenSize|keyboardHidden|orientation|keyboard"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Launch"
+            android:launchMode="singleInstance"
             android:windowSoftInputMode="adjustPan|stateHidden">
 
             <intent-filter>

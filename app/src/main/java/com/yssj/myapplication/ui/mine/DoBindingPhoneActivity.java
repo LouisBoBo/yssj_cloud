@@ -206,6 +206,7 @@ public class DoBindingPhoneActivity extends BaseActivity implements View.OnClick
                 mMessageLoader.dismiss();
                 if(error == null){
                     XToastUtils.toast("操作成功");
+                    onBackPressed();
                 }
             }
 

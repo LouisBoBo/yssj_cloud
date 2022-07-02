@@ -54,6 +54,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
                 WXEventBean wxEventBean = new WXEventBean();
                 wxEventBean.setCode(code);
                 EventBus.getDefault().postSticky(wxEventBean);
+                finish();
                 break;
             case BaseResp.ErrCode.ERR_AUTH_DENIED:
                 Toast.makeText(this, "授权出错", Toast.LENGTH_SHORT).show();

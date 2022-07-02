@@ -139,13 +139,20 @@ public class MsFragment extends Fragment {
                 refreshLayout.finishLoadMore();
                 mMessageLoader.dismiss();
                 if(error == null){
-//                    XToastUtils.toast("请求成功");
+
                     if(curPage == 1){
                         grabOrderList.clear();
                     }
                     grabOrderList.addAll(bean.getGrabOrderList());
                     adapter.setmDatas(grabOrderList);
+
                 }
+//                else {
+//                    if(bean.getStatus().toString().equals("10030")){
+//                        Intent intent = new Intent(getActivity(), Loginactivity.class);
+//                        startActivity(intent);
+//                    }
+//                }
             }
         });
     }

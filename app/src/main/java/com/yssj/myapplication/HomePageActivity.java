@@ -80,7 +80,6 @@ public class HomePageActivity extends BaseActivity {
                     intent.putExtras(bundle);
                     startActivity(intent);
                     overridePendingTransition(R.anim.slide_left_in,R.anim.slide_right_out);
-
                     finish();
                 }
 
